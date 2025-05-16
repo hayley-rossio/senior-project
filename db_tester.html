@@ -1,0 +1,35 @@
+<!-- templates/db_tester.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Test Viewer</title>
+</head>
+<body>
+    <h2>Database Tables:</h2>
+    <ul id="tableList">
+        <li>Loading...</li>
+    </ul>
+    <script>
+        fetch('/api/test-db')
+            .then(res => res.json())
+            .then(data => {
+                const tableList = document.getElementById('tableList');
+                tableList.innerHTML = '';
+                if (data.length === 0) {
+                    tableList.innerHTML = '<li>No tables found.</li>';
+                } else {
+                    data.forEach(row => {
+                        const li = document.createElement('li');
+                        li.textContent = row[0];  // Each row is a tuple like ('users',)
+                        tableList.appendChild(li);
+                    });
+                }
+            })
+            .catch(err => {
+                document.getElementById('tableList').innerHTML = '<li>Error fetching tables.</li>';
+                console.error(err);
+            });
+    </script>
+</body>
+</html>

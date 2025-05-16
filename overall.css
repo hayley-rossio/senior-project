@@ -1,0 +1,256 @@
+/* === Navigation Styling === */
+nav {
+    overflow: hidden;
+    background-color: #dda0dd;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+nav a {
+    float: right;
+    text-align: center;
+    padding: 10px;
+    text-emphasis: 5;
+    font-size: 18px;
+    color: black;
+}
+nav a:hover {
+    background-color: rgba(162, 202, 162);
+    color: black;
+}
+#home {
+    float: left;
+}
+#logout {
+    margin-right: 20px;
+}
+
+/* === Whole Page; For Every Page === */
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgba(221, 160, 221, 0.068);
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.flash-messages {
+    text-align: center;
+}
+
+/* === Home Page === */
+.completed-workout {
+    background-color: lightgray;
+    opacity: 0.6;
+    pointer-events: none;
+    color: #888;
+}
+#homediv {
+    display: grid;
+    grid: 
+        "today race"
+        "cal cal" 2fr
+        / 1.25fr 0.75fr;
+    gap: 10px;
+    padding: 15px;
+}
+#calendar {
+    grid-area: cal;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 8px;
+}
+#raceinfo {
+    grid-area: race;
+    padding-top: 30px;
+}
+#upcomingRaces {
+    margin-top: 20px;
+    padding: 30px;
+    border: 2px solid;
+    border-radius: 8px;
+    border-color: #617961;
+    background-color: #a2caa2;
+}
+#today {
+    grid-area: today;
+    padding: 4px;
+    padding-top: 30px;
+}
+.workout-item {
+    border: 2px solid;
+    border-color: #617961;
+    border-radius: 8px;
+    background-color: #a2caa2;
+    padding: 8px;
+    margin: 10px;
+}
+.workout-title {
+    margin: 15px
+}
+.workout-row {
+    display: flex;
+    flex-direction: row;
+}
+.workout-col1 {
+    grid-area: col1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+.workout-col2  {
+    grid-area: col2;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+/* === Full Calendar === */
+.delete-btn {
+    border: none;
+    float: right;
+}
+.fc .fc-event {
+    padding: 3px;
+    background-color: #a2caa2 !important;
+    border-color: #617961 !important;
+    color: black !important;
+}
+.fc .fc-button {
+    background-color: #617961 !important;
+    border-color: #384638 !important;
+}
+.fc .fc-day-today {
+    background-color: #dda0dd2c !important;
+}
+
+/* === Workout Input Page === */
+#workout-form {
+    padding-top: 70px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+}
+#in-div {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+    padding-top: 15px;
+    border: 2px solid;
+    border-color: #a2caa2;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #ecf4eca8;
+}
+#in-lab {
+    grid-area: col3;
+    display: flex;
+    flex-direction: column;
+}
+#in-in {
+    grid-area: col4;
+    display: flex;
+    flex-direction: column;
+} 
+
+/* === Profile Page === */
+#profilepage {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.profuser {
+    padding-left: 40px;
+}
+.pro-in {
+    padding-right: 40px;
+}
+#newrace label {
+    padding: 8px;
+}
+#newrace input {
+    padding: 4px;
+}
+#proftop {
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* === Equipment Page === */
+.in-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+#in-h2 {
+    padding-top: 60px;
+    text-align: center;
+}
+#equipInput {
+    grid-area: col1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    padding: 20px;
+}
+#equipInput button {
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 10px;
+    padding: 8px;
+}
+#equipInput h3 {
+    text-align: center;
+}
+#equipInput div {
+    padding: 8px;
+}
+#equipTable h3 {
+    text-align: center;
+}
+#equipTable {
+    grid-area: col1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+#in-tab {
+    border-collapse: collapse;
+    border-radius: 8px;
+}
+#in-tab thead {
+    padding: 30px;
+    text-align: left;
+    background-color: #a2caa2;
+    border: 2px solid #617961;   
+}
+#in-tab th {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+#in-tab tbody {
+    text-align: center;
+    border: 2px solid #617961;
+}
+
+/* === Login/Register Pages === */
+.login {
+    text-align: center;
+    padding: 70px;
+}
+.login label {
+    padding: 15px;
+}
+.login input {
+    gap: 15px;
+}
+.regi {
+    text-align: center;
+    padding: 80px;
+}

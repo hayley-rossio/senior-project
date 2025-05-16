@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/overall.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <form action="{{ url_for('api.addWorkout') }}" id="workout-form" method="POST">
+        <div id="in-div">
+            <h3>Input a New Workout</h3>
+
+            <label id="in-lab">Type:</label>
+            <input id="in-in" type="text" name="type" required><br>
+
+            <label id="in-lab">Date:</label>
+            <input id="in-in" type="date" name="date" required><br>
+
+            <label id="in-lab">Duration in Minutes:</label>
+            <input id="in-in" type="number" name="duration" required><br>
+
+            <label id="in-lab">Distance in Miles:</label>
+            <input id="in-in" type="number" name="distance" required><br>
+
+            <label for="shoe" id="in-lab">Shoe Used:</label>
+            <select name="equipment_id" id="shoe"  id="in-in">
+                {% for shoe in shoes %}
+                <option value="{{ shoe.id }}">{{ shoe.brand }} - {{ shoe.shoe }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <label id="in-lab">Notes:</label>
+            <textarea name="notes" id="in-in"></textarea><br>
+
+            <button type="submit" id="in-butt">Add Workout</button>
+        </div> 
+    </form>
+    {% endblock %}
+</body>
+</html>

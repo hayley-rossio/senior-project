@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/overall.css') }}">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h2 id="in-h2">Equipment Tracker</h2>
+    <div class="in-container">
+        <div id="equipInput">
+            <h3>New Shoes Input</h3>
+            <form method="POST" action="{{ url_for('main.equipment') }}">
+                <div>
+                    <label for="shoe">Shoe Name:</label>
+                    <input type="text" id="shoe" name="shoe" required>
+                </div>
+                <div>
+                    <label for="brand">Shoe Brand:</label>
+                    <input type="text" id="brand" name="brand">
+                </div>
+                <div>
+                    <label for="model">Shoe Model:</label>
+                    <input type="text" id="model" name="model">
+                </div>
+                <div>
+                    <label for="miles">Starting Miles:</label>
+                    <input type="number" step="0.1" id="miles" value="0">
+                </div>
+                <button type="submit">Add Shoes</button>
+            </form>
+        </div>
+        <div id="equipTable">
+            <h3>Your Gear</h3>
+            <table id="in-tab">
+                <thead id="in-th">
+                    <tr>
+                        <th>Brand</th>
+                        <th>Shoe</th>
+                        <th>Model</th>
+                        <th>Miles</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="in-tb">
+                    {% for gear in equipment %}
+                    <tr style="border: 2px solid #617961;">
+                        <td style="padding: 4px;">{{ gear.brand }}</td>
+                        <td style="padding: 4px;">{{ gear.shoe }}</td>
+                        <td style="padding: 4px;">{{ gear.model }}</td>
+                        <td style="padding: 4px;">{{ gear.miles }}</td>
+                        <td style="padding: 4px;">{{ "Retired" if gear.retired else "Active" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

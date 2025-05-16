@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/overall.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div id="proftop">
+        <h2 id="prof-h2">{{ current_user.username }}'s Profile</h2><br>
+        <h2 id="todaydate"></h2>
+    </div>
+    <div id="profilepage">
+        <div class="pro-in">
+            <div id="workoutStats">
+                    <h3>Workout Stats (This Month)</h3>
+                    <canvas id="workoutGraph"></canvas>
+                </div>
+            <div>
+                <h3 id="newrace">Add a New Race</h3>
+                <form action="{{ url_for('main.addrace') }}" method="POST" id="newrace">
+                    <label for="title">Race Title:</label>
+                    <input type="text" id="title" name="title" required><br>
+
+                    <label for="date">Race Date:</label>
+                    <input type="date" id="date" name="date" required><br>
+
+                    <button type="submit">Add Race</button>
+                </form>
+            </div>  
+            <script src="{{ url_for('static', filename='js/races.js') }}"></script>
+            <h3>Upcoming Races</h3>
+            <div id="upcomingRaces" class="race-box"></div> 
+            <h3>Past Races</h3>
+            <div id="pastRaces" class="race-box"></div>
+        </div>
+        <div id="profuser">
+            
+            <div class="profilestats">
+                
+                <div id="completionStats">
+                    <h3>Workouts Completed vs Total Workouts</h3>
+                    <canvas id="completionGraph"></canvas>
+                </div>
+            </div>
+            <div class="profileinfo">
+                <h3>User Information</h3>
+                <p><strong>Username:</strong> {{ current_user.username }}</p>
+                <p><strong>Email:</strong> {{ current_user.email }}</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
